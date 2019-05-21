@@ -1,4 +1,4 @@
-#' Read SubRip file
+#' Read subRip file
 #'
 #' Read a srt file as a vector, make sure your srt file is saveing as ANSI encoding using Windows Notepad
 #'
@@ -10,13 +10,32 @@
 #' \dontrun{
 #'
 #' # read a ANSI srt file
-#' srt.read <- ("movie.srt" ,encoding= 'utf-8')
+#' srt <- srt.read("movie.srt", encoding = 'utf-8')
 #' }
 srt.read<-function(file,encoding= 'utf-8'){
   file <- readLines(file,encoding = encoding)
   return(file)
 }
 
+#' Re-synchronize srt file
+#'
+#' Shift a srt file with specific time.
+#'
+#' @param srt vector. The srt file read by \code{\link[SRTtools]{srt.read}}.
+#' @param time_shifted numeric. The time that srt file want to be shifted (in seconds).
+#' @export
+#' @seealso \code{\link[SRTtools]{srt.read}}
+#' @examples
+#' \dontrun{
+#'
+#' srt <- srt.read("movie.srt", encoding = 'utf-8')
+#'
+#' # Postpone subtitles 3 seconds
+#' srt <- srt.shift(srt, time_shifted = 3)
+#'
+#' # Make subtitles 5 seconds earlier
+#' srt <- srt.shift(srt, time_shifted = -5)
+#' }
 srt.shift<-function(srt,time_shifted){
   options("digits.secs"=3)
   time_format <- "%H:%M:%OS"

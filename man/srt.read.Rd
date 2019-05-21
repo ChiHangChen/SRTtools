@@ -2,7 +2,7 @@
 % Please edit documentation in R/main.R
 \name{srt.read}
 \alias{srt.read}
-\title{Read SubRip file}
+\title{Read subRip file}
 \usage{
 srt.read(file, encoding = "utf-8")
 }
@@ -18,7 +18,7 @@ Read a srt file as a vector, make sure your srt file is saveing as ANSI encoding
 \dontrun{
 
 # read a ANSI srt file
-srt.read <- ("movie.srt",encoding= 'utf-8')
+srt <- srt.read("movie.srt", encoding = 'utf-8')
 }
 }
 \seealso{
