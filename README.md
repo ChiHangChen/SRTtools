@@ -73,7 +73,7 @@ srt.write(srt_earlier, filename = "Avengers3_new.srt")
 ```
 #### **Change color and position of subtitles which contains 'Wow'**
 ```r
-srt.style(srt, line = srt.search(srt,"Wow"), pos = 'middle-center', style = c('b','i'), col = 'red')
+> srt.style(srt, line = srt.search(srt,"Wow"), pos = 'middle-center', style = c('b','i'), col = 'red')
  [418] "791"                                                                              
  [419] "01:00:28,545 --> 01:00:29,379"                                                    
  [420] "the stone."                                                                       
