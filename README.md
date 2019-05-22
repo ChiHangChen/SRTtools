@@ -87,7 +87,7 @@ srt.style(srt, line = srt.search(srt,"Wow"), pos = 'middle-center', style = c('b
  [428] "01:00:44,561 --> 01:00:46,563"                                                    
  [429] "Yeah, speaking of loyalty..."    
 ```
-![](man/img/01.jpg =455x443)
+![](man/img/01.jpg ){width=443px style="display: block; margin: 0 auto"}
 
 
 ***
