@@ -2,17 +2,17 @@
 % Please edit documentation in R/main.R
 \name{srt.read}
 \alias{srt.read}
-\title{Read subRip file}
+\title{Read srt file}
 \usage{
 srt.read(file, encoding = "utf-8")
 }
 \arguments{
-\item{file}{character. The name of the file which the subtitles are to be read from}
+\item{file}{character. The name of the file which the subtitles are to be read from.}
 
 \item{encoding}{character. Encoding to be assumed for input strings, deafult is 'utf-8'.}
 }
 \description{
-Read a srt file as a vector, make sure your srt file is saveing as ANSI encoding using Windows Notepad
+Read a srt file as a vector, if there is any encoding issue, try to save your srt fle as ANSI encoding using Windows Notepad.
 }
 \examples{
 \dontrun{
