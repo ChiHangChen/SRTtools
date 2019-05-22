@@ -62,7 +62,7 @@ srt_earlier <- srt.shift(srt, time_shifted = -0.5)
 ```r
 srt.write(srt_earlier, filename = "Avengers3_new.srt")
 ```
-#### **Retrieve subtitle dialogue only**
+#### **Retrieve subtitle content only**
 ```r
 > srt.content(srt)
    [1] "<i>This is the Asgardian"                            "refugee vessel </i>Statesman<i>.</i>"               
