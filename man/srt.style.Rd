@@ -12,11 +12,11 @@ srt.style(srt, line = "all", pos = "None", style = "None",
 
 \item{line}{numerical vector. Style will only change the subtitles of the selected subtitle index, default is 'all', means the whole subtitles will apply the style.}
 
+\item{pos}{character. The subtitles position, the valid options are '\code{bottom-left}', '\code{bottom-center}', '\code{bottom-right}', '\code{middle-left}', '\code{middle-center}', '\code{middle-right}', '\code{top-left}', '\code{top-center}', '\code{top-right}' and '\code{center}'.}
+
 \item{style}{character vector. The styles that subtitle applied, '\code{u}' for bottom line, '\code{i}' for italic, '\code{b}' for bold, '\code{s}' for strikethrough.}
 
 \item{col}{character. The color that subtitle applied.}
-
-\item{position}{character. The subtitles position, the valid options are '\code{bottom-left}', '\code{bottom-center}', '\code{bottom-right}', '\code{middle-left}', '\code{middle-center}', '\code{middle-right}', '\code{top-left}', '\code{top-center}', '\code{top-right}' and '\code{center}'.}
 }
 \description{
 Change subtitle style or posistion by specific subtitle index.

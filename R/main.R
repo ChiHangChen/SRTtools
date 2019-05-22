@@ -99,7 +99,7 @@ srt.content <- function(srt){
 #'
 #' @param srt vector. The srt file read by \code{\link[SRTtools]{srt.read}}.
 #' @param line numerical vector. Style will only change the subtitles of the selected subtitle index, default is 'all', means the whole subtitles will apply the style.
-#' @param position character. The subtitles position, the valid options are '\code{bottom-left}', '\code{bottom-center}', '\code{bottom-right}', '\code{middle-left}', '\code{middle-center}', '\code{middle-right}', '\code{top-left}', '\code{top-center}', '\code{top-right}' and '\code{center}'.
+#' @param pos character. The subtitles position, the valid options are '\code{bottom-left}', '\code{bottom-center}', '\code{bottom-right}', '\code{middle-left}', '\code{middle-center}', '\code{middle-right}', '\code{top-left}', '\code{top-center}', '\code{top-right}' and '\code{center}'.
 #' @param style character vector. The styles that subtitle applied, '\code{u}' for bottom line, '\code{i}' for italic, '\code{b}' for bold, '\code{s}' for strikethrough.
 #' @param col character. The color that subtitle applied.
 #' @export
