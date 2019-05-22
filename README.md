@@ -25,7 +25,7 @@ library(SRTtools)
 ## **Examples**
 
 
-#### **Read srt file**
+### **Read srt file**
 
 ```r
 srt <- srt.read('Avengers3.srt')
@@ -36,7 +36,7 @@ srt <- srt.read('Avengers3.srt')
    [7] "00:00:32,657 --> 00:00:36,119"                       "<i>We are under assault."                           
 ```
 
-#### **Postpone subtitles 0.5 seconds later**
+### **Postpone subtitles 0.5 seconds later**
 
 ```r
 srt_later <- srt.shift(srt, time_shifted = 0.5)
@@ -48,7 +48,7 @@ srt_later <- srt.shift(srt, time_shifted = 0.5)
 
 ```
 
-#### **Expedite subtitles 0.5 seconds earlier**
+### **Expedite subtitles 0.5 seconds earlier**
 
 ```r
 srt_earlier <- srt.shift(srt, time_shifted = -0.5)
@@ -58,11 +58,11 @@ srt_earlier <- srt.shift(srt, time_shifted = -0.5)
    [5] ""                                                    "2"                                                  
    [7] "00:00:32,157 --> 00:00:35,618"                       "<i>We are under assault."                           
 ```
-#### **Save as 'Avengers3_new.srt' file**
+### **Save as 'Avengers3_new.srt' file**
 ```r
 srt.write(srt_earlier, filename = "Avengers3_new.srt")
 ```
-#### **Retrieve subtitle content only**
+### **Retrieve subtitle content only**
 ```r
 > srt.content(srt)
    [1] "<i>This is the Asgardian"                            "refugee vessel </i>Statesman<i>.</i>"               
@@ -71,7 +71,7 @@ srt.write(srt_earlier, filename = "Avengers3_new.srt")
    [7] "<i>We are 22 jump points out of Asgard.</i>"         "<i>Our crew is made up of Asgardian families."  
 
 ```
-#### **Change color and position of subtitles which contains 'Wow'**
+### **Change color and position of subtitles which contains 'Wow'**
 ```r
 > srt.style(srt, line = srt.search(srt,"Wow"), pos = 'middle-center', style = c('b','i'), col = 'red')
  [418] "791"                                                                              
