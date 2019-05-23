@@ -1,3 +1,5 @@
+if(getRversion() >= "2.15.1")  utils::globalVariables(c("."))
+
 #' Read srt file
 #'
 #' Read a srt file as a vector, if there is any encoding issue, try to save your srt fle as ANSI encoding using Windows Notepad.
