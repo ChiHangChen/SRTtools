@@ -14,6 +14,15 @@ srt.search(srt, key_word)
 \description{
 Return the subtitle index by specific keyword
 }
+\examples{
+\dontshow{
+
+srt_path <- system.file("extdata", "movie.srt", package="SRTtools")
+srt <- srt.read(srt_path, encoding = 'utf-8')
+srt.search(srt, key_word = "captain")
+
+}
+}
 \seealso{
 \code{\link[SRTtools]{srt.read}}
 }

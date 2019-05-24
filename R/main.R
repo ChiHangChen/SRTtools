@@ -9,11 +9,15 @@ if(getRversion() >= "2.15.1")  utils::globalVariables(c("."))
 #' @export
 #' @seealso \code{\link[base]{readLines}}
 #' @examples
-#' \dontrun{
+#' \dontshow{
 #'
 #' # read a ANSI srt file
-#' srt <- srt.read("movie.srt", encoding = 'utf-8')
+#'
+#' srt_path <- system.file("extdata", "movie.srt", package="SRTtools")
+#' srt <- srt.read(srt_path, encoding = 'utf-8')
+#'
 #' }
+#'
 srt.read <- function(file,encoding= 'utf-8'){
   file <- readLines(file,encoding = encoding)
   return(file)
@@ -28,9 +32,10 @@ srt.read <- function(file,encoding= 'utf-8'){
 #' @export
 #' @seealso \code{\link[SRTtools]{srt.read}}
 #' @examples
-#' \dontrun{
+#' \dontshow{
 #'
-#' srt <- srt.read("movie.srt", encoding = 'utf-8')
+#' srt_path <- system.file("extdata", "movie.srt", package="SRTtools")
+#' srt <- srt.read(srt_path, encoding = 'utf-8')
 #'
 #' # Postpone subtitles 3 seconds later
 #' srt <- srt.shift(srt, time_shifted = 3)
@@ -60,15 +65,16 @@ srt.shift <- function(srt,time_shifted){
 #' @export
 #' @seealso \code{\link[SRTtools]{srt.read}}
 #' @examples
-#' \dontrun{
+#' \dontshow{
 #'
-#' srt <- srt.read("movie.srt", encoding = 'utf-8')
+#' srt_path <- system.file("extdata", "movie.srt", package="SRTtools")
+#' srt <- srt.read(srt_path, encoding = 'utf-8')
 #'
 #' # Postpone subtitles 3 seconds later
 #' srt <- srt.shift(srt, time_shifted = 3)
 #'
 #' # Save and cover original "movie.srt" file
-#' srt.write(srt, filename = "movie.srt")
+#' srt.write(srt, filename =  file.path(tempdir(), "movie.srt"))
 #' }
 srt.write<-function(srt,filename){
   fileConn<-file(filename)
@@ -84,9 +90,10 @@ srt.write<-function(srt,filename){
 #' @export
 #' @seealso \code{\link[SRTtools]{srt.read}}
 #' @examples
-#' \dontrun{
+#' \dontshow{
 #'
-#' srt <- srt.read("movie.srt", encoding = 'utf-8')
+#' srt_path <- system.file("extdata", "movie.srt", package="SRTtools")
+#' srt <- srt.read(srt_path, encoding = 'utf-8')
 #'
 #' srt.content(srt)
 #' }
@@ -107,8 +114,12 @@ srt.content <- function(srt){
 #' @export
 #' @seealso \code{\link[SRTtools]{srt.read}}
 #' @examples
-#' \dontrun{
-#' srt.style(srt, line = c(1,3,5), pos = 'top-left', style = c('b','i'), color = 'red')
+#' \dontshow{
+#'
+#' srt_path <- system.file("extdata", "movie.srt", package="SRTtools")
+#' srt <- srt.read(srt_path, encoding = 'utf-8')
+#' srt.style(srt, line = c(1,3,5), pos = 'top-left', style = c('b','i'), col = 'red')
+#'
 #' }
 srt.style <- function(srt, line = "all", pos = "None", style = "None", col = "None"){
   # Position
@@ -173,6 +184,14 @@ srt.style <- function(srt, line = "all", pos = "None", style = "None", col = "No
 #' @param key_word character. The key word want to be searched in subtitles.
 #' @export
 #' @seealso \code{\link[SRTtools]{srt.read}}
+#' @examples
+#' \dontshow{
+#'
+#' srt_path <- system.file("extdata", "movie.srt", package="SRTtools")
+#' srt <- srt.read(srt_path, encoding = 'utf-8')
+#' srt.search(srt, key_word = "captain")
+#'
+#' }
 srt.search <- function(srt,key_word){
   srt_index <- sapply(srt,srt_to_numeric)%>%as.numeric
   srt_index_loc <- which(!is.na(srt_index))
@@ -185,7 +204,13 @@ srt.conten_loc <- function(srt){
   time_stamp_loc <- which(grepl("^[0-9][0-9]:[0-9][0-9]:[0-9][0-9],[0-9][0-9][0-9] --> [0-9][0-9]:[0-9][0-9]:[0-9][0-9],[0-9][0-9][0-9]$",srt))
   a <- time_stamp_loc+1
   b <- c((time_stamp_loc-2)[-1],length(srt))
-  content_loc<-mapply(function(a,b) a:b, a,b)%>% do.call(c,.)
+  dia_range <- mapply(function(a,b) a:b, a,b)
+  if(is.list(dia_range)){
+    content_loc<-dia_range %>% do.call(c,.)
+  }else{
+    content_loc<-dia_range %>% c
+  }
+
   content_loc %<>% .[srt[.]!=""]
   return(content_loc)
 }

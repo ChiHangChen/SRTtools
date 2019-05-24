@@ -13,9 +13,10 @@ srt.content(srt)
 Retrieve all the subtitle text content from a srt file
 }
 \examples{
-\dontrun{
+\dontshow{
 
-srt <- srt.read("movie.srt", encoding = 'utf-8')
+srt_path <- system.file("extdata", "movie.srt", package="SRTtools")
+srt <- srt.read(srt_path, encoding = 'utf-8')
 
 srt.content(srt)
 }

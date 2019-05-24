@@ -15,11 +15,15 @@ srt.read(file, encoding = "utf-8")
 Read a srt file as a vector, if there is any encoding issue, try to save your srt fle as ANSI encoding using Windows Notepad.
 }
 \examples{
-\dontrun{
+\dontshow{
 
 # read a ANSI srt file
-srt <- srt.read("movie.srt", encoding = 'utf-8')
+
+srt_path <- system.file("extdata", "movie.srt", package="SRTtools")
+srt <- srt.read(srt_path, encoding = 'utf-8')
+
 }
+
 }
 \seealso{
 \code{\link[base]{readLines}}
