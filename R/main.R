@@ -9,14 +9,11 @@ if(getRversion() >= "2.15.1")  utils::globalVariables(c("."))
 #' @export
 #' @seealso \code{\link[base]{readLines}}
 #' @examples
-#' \dontshow{
-#'
 #' # read a ANSI srt file
-#'
 #' srt_path <- system.file("extdata", "movie.srt", package="SRTtools")
 #' srt <- srt.read(srt_path, encoding = 'utf-8')
 #'
-#' }
+#'
 #'
 srt.read <- function(file,encoding= 'utf-8'){
   file <- readLines(file,encoding = encoding)
@@ -32,8 +29,6 @@ srt.read <- function(file,encoding= 'utf-8'){
 #' @export
 #' @seealso \code{\link[SRTtools]{srt.read}}
 #' @examples
-#' \dontshow{
-#'
 #' srt_path <- system.file("extdata", "movie.srt", package="SRTtools")
 #' srt <- srt.read(srt_path, encoding = 'utf-8')
 #'
@@ -42,7 +37,7 @@ srt.read <- function(file,encoding= 'utf-8'){
 #'
 #' # Expedite subtitles 5 seconds earlier
 #' srt <- srt.shift(srt, time_shifted = -5)
-#' }
+#'
 srt.shift <- function(srt,time_shifted){
   options("digits.secs"=3)
   time_format <- "%H:%M:%OS"
@@ -65,8 +60,6 @@ srt.shift <- function(srt,time_shifted){
 #' @export
 #' @seealso \code{\link[SRTtools]{srt.read}}
 #' @examples
-#' \dontshow{
-#'
 #' srt_path <- system.file("extdata", "movie.srt", package="SRTtools")
 #' srt <- srt.read(srt_path, encoding = 'utf-8')
 #'
@@ -75,7 +68,7 @@ srt.shift <- function(srt,time_shifted){
 #'
 #' # Save and cover original "movie.srt" file
 #' srt.write(srt, filename =  file.path(tempdir(), "movie.srt"))
-#' }
+#'
 srt.write<-function(srt,filename){
   fileConn<-file(filename)
   writeLines(srt, fileConn)
@@ -90,13 +83,11 @@ srt.write<-function(srt,filename){
 #' @export
 #' @seealso \code{\link[SRTtools]{srt.read}}
 #' @examples
-#' \dontshow{
-#'
 #' srt_path <- system.file("extdata", "movie.srt", package="SRTtools")
 #' srt <- srt.read(srt_path, encoding = 'utf-8')
 #'
 #' srt.content(srt)
-#' }
+#'
 srt.content <- function(srt){
   content_loc <- srt.conten_loc(srt)
   return(srt[content_loc])
@@ -114,13 +105,10 @@ srt.content <- function(srt){
 #' @export
 #' @seealso \code{\link[SRTtools]{srt.read}}
 #' @examples
-#' \dontshow{
-#'
 #' srt_path <- system.file("extdata", "movie.srt", package="SRTtools")
 #' srt <- srt.read(srt_path, encoding = 'utf-8')
 #' srt.style(srt, line = c(1,3,5), pos = 'top-left', style = c('b','i'), col = 'red')
 #'
-#' }
 srt.style <- function(srt, line = "all", pos = "None", style = "None", col = "None"){
   # Position
   pos_heaed <- switch(pos,
@@ -185,13 +173,11 @@ srt.style <- function(srt, line = "all", pos = "None", style = "None", col = "No
 #' @export
 #' @seealso \code{\link[SRTtools]{srt.read}}
 #' @examples
-#' \dontshow{
-#'
 #' srt_path <- system.file("extdata", "movie.srt", package="SRTtools")
 #' srt <- srt.read(srt_path, encoding = 'utf-8')
 #' srt.search(srt, key_word = "captain")
 #'
-#' }
+
 srt.search <- function(srt,key_word){
   srt_index <- sapply(srt,srt_to_numeric)%>%as.numeric
   srt_index_loc <- which(!is.na(srt_index))

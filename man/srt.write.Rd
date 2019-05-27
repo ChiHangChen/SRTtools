@@ -15,8 +15,6 @@ srt.write(srt, filename)
 Write the srt file to the system.
 }
 \examples{
-\dontshow{
-
 srt_path <- system.file("extdata", "movie.srt", package="SRTtools")
 srt <- srt.read(srt_path, encoding = 'utf-8')
 
@@ -25,7 +23,7 @@ srt <- srt.shift(srt, time_shifted = 3)
 
 # Save and cover original "movie.srt" file
 srt.write(srt, filename =  file.path(tempdir(), "movie.srt"))
-}
+
 }
 \seealso{
 \code{\link[SRTtools]{srt.read}}

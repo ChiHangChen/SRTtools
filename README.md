@@ -10,13 +10,6 @@
 ## **Package Setup**
 
 ```r
-install.packages("SRTtools")
-library(SRTtools)
-```
-or
-```r
-if (!require("devtools")) install.packages("devtools")
-devtools::install_github("ChiHangChen/SRTtools")
 library(SRTtools)
 ```
 

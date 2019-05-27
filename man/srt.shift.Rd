@@ -15,8 +15,6 @@ srt.shift(srt, time_shifted)
 Shift a srt file with specific time.
 }
 \examples{
-\dontshow{
-
 srt_path <- system.file("extdata", "movie.srt", package="SRTtools")
 srt <- srt.read(srt_path, encoding = 'utf-8')
 
@@ -25,7 +23,7 @@ srt <- srt.shift(srt, time_shifted = 3)
 
 # Expedite subtitles 5 seconds earlier
 srt <- srt.shift(srt, time_shifted = -5)
-}
+
 }
 \seealso{
 \code{\link[SRTtools]{srt.read}}

@@ -22,13 +22,10 @@ srt.style(srt, line = "all", pos = "None", style = "None",
 Change subtitle style or posistion by specific subtitle index.
 }
 \examples{
-\dontshow{
-
 srt_path <- system.file("extdata", "movie.srt", package="SRTtools")
 srt <- srt.read(srt_path, encoding = 'utf-8')
 srt.style(srt, line = c(1,3,5), pos = 'top-left', style = c('b','i'), col = 'red')
 
-}
 }
 \seealso{
 \code{\link[SRTtools]{srt.read}}
