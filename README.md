@@ -21,7 +21,8 @@ library(SRTtools)
 ### **Read srt file**
 
 ```r
-srt <- srt.read('Avengers3.srt')
+srt_path <- system.file("extdata", "movie.srt", package="SRTtools")
+srt <- srt.read(srt_path)
 > srt
    [1] "1"                                                   "00:00:25,525 --> 00:00:29,904"                      
    [3] "<i>This is the Asgardian"                            "refugee vessel </i>Statesman<i>.</i>"               
@@ -51,9 +52,9 @@ srt_earlier <- srt.shift(srt, time_shifted = -0.5)
    [5] ""                                                    "2"                                                  
    [7] "00:00:32,157 --> 00:00:35,618"                       "<i>We are under assault."                           
 ```
-### **Save as 'Avengers3_new.srt' file**
+### **Save as 'movie_new.srt' file**
 ```r
-srt.write(srt_earlier, filename = "Avengers3_new.srt")
+srt.write(srt_earlier, filename = "movie_new.srt")
 ```
 ### **Retrieve subtitle content only**
 ```r
