@@ -10,6 +10,7 @@
 ## **Package Setup**
 
 ```r
+install.packages("SRTtools")
 library(SRTtools)
 ```
 
