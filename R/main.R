@@ -219,6 +219,37 @@ srt.insert <- function(srt,index,time,text){
   )
 }
 
+#' Remove dialog
+#'
+#' Remove unwanted dialog from subtitles by specific index
+#'
+#' @param srt vector. The srt file read by \code{\link[SRTtools]{srt.read}}.
+#' @param index integer. The index of unwanted dialog .
+#' @export
+#' @seealso \code{\link[SRTtools]{srt.read}}
+#' @examples
+#' srt_path <- system.file("extdata", "movie.srt", package="SRTtools")
+#' srt <- srt.read(srt_path, encoding = 'utf-8')
+#' srt.remove(srt, index = 10)
+#'
+srt.remove <- function(srt, index){
+  if(index<=0){
+    stop("index must greater than zero")
+  }
+  index_loc <- srt.index_loc(srt)
+  if(index==1){
+    upper_part <- c()
+  }else{
+    upper_part <- srt[1:(index_loc[index]-1)]
+  }
+  lower_part <- srt[index_loc[index+1]:length(srt)]
+  lower_part_index <- srt.index_loc(lower_part)
+  lower_part[lower_part_index] <- as.numeric(names(lower_part_index))-1
+  return (
+    c(upper_part,lower_part)
+  )
+}
+
 
 srt.conten_loc <- function(srt){
   time_stamp_loc <- which(grepl("^[0-9][0-9]:[0-9][0-9]:[0-9][0-9],[0-9][0-9][0-9] --> [0-9][0-9]:[0-9][0-9]:[0-9][0-9],[0-9][0-9][0-9]$",srt))

@@ -3,6 +3,7 @@
 export(srt.content)
 export(srt.insert)
 export(srt.read)
+export(srt.remove)
 export(srt.search)
 export(srt.shift)
 export(srt.style)

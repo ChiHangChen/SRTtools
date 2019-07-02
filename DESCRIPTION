@@ -1,7 +1,7 @@
 Package: SRTtools
 Type: Package
 Title: Adjust Srt File to Get Better Experience when Watching Movie
-Version: 1.1.0
+Version: 1.2.0
 Date: 2019-07-02
 Authors@R: c(person("Jim", "Chen", role = c("aut", "cre"), email = "jim71183@gmail.com"))
 Description: Srt file is a common subtitle format for videos, it contains subtitle and when the subtitle showed.

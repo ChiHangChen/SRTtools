@@ -1,4 +1,9 @@
-KeyboardSimulator 1.1.0
+KeyboardSimulator 1.2.0
+----------------------------------------------------------------
+
+* New function "srt.remove" for remove unwanted dialog from subtitles.
+
+SRTtools 1.2.0
 ----------------------------------------------------------------
 
 * New function "srt.insert" for insert new dialog to subtitles.
