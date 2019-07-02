@@ -186,6 +186,40 @@ srt.search <- function(srt,key_word){
   )
 }
 
+#' Insert new dialog
+#'
+#' Insert new dialog to subtitles by specific index
+#'
+#' @param srt vector. The srt file read by \code{\link[SRTtools]{srt.read}}.
+#' @param index integer. The index of new dialog.
+#' @param time character. The time of new dialog, a proper format is "hr:min:sec,msec --> hr:min:sec,msec"
+#' @param text character. The content of new dialog.
+#' @export
+#' @seealso \code{\link[SRTtools]{srt.read}}
+#' @examples
+#' srt_path <- system.file("extdata", "movie.srt", package="SRTtools")
+#' srt <- srt.read(srt_path, encoding = 'utf-8')
+#' srt.insert(srt, index = 1, time = "00:00:00,000 --> 00:00:30,000", text = "Added by SRTtools")
+#'
+srt.insert <- function(srt,index,time,text){
+  if(index<=0){
+    stop("index must greater than zero")
+  }
+  index_loc <- srt.index_loc(srt)
+  lower_part <- srt[index_loc[index]:length(srt)]
+  lower_part_index <- srt.index_loc(lower_part)
+  lower_part[lower_part_index] <- as.numeric(names(lower_part_index))+1
+  if(index==1){
+    srt_return <- c(index,time,text,"",lower_part)
+  }else{
+    srt_return <- c(srt[1:(index_loc[index]-1)],index,time,text,"",lower_part)
+  }
+  return (
+    srt_return
+  )
+}
+
+
 srt.conten_loc <- function(srt){
   time_stamp_loc <- which(grepl("^[0-9][0-9]:[0-9][0-9]:[0-9][0-9],[0-9][0-9][0-9] --> [0-9][0-9]:[0-9][0-9]:[0-9][0-9],[0-9][0-9][0-9]$",srt))
   a <- time_stamp_loc+1
@@ -210,4 +244,10 @@ srt_to_numeric<-function(s){
     NA
   }
   )
+}
+
+srt.index_loc <- function(srt){
+  loc <- seq(1,length(srt),4)
+  names(loc) <- srt[loc]
+  return(loc)
 }

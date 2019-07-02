@@ -82,6 +82,16 @@ srt.write(srt_earlier, filename = "movie_new.srt")
  [428] "01:00:44,561 --> 01:00:46,563"                                                    
  [429] "Yeah, speaking of loyalty..."    
 ```
+### **Insert a new dialog as the first dialog**
+```r
+> srt.insert(srt, index = 1, time = "00:00:00,000 --> 00:00:30,000", text = "Added by SRTtools!")
+   [1] "1"                                                             "00:00:00,000 --> 00:00:30,000"                                
+   [3] "Added by SRTtools!"                                             ""                                                             
+   [5] "2"                                                             "00:00:26,360 --> 00:00:28,192"                                
+   [7] "This is the Asgardian"                                         ""                                                             
+   [9] "3"                                                             "00:00:28,278 --> 00:00:30,736"                                
+   [11] "refugee vessel Statesman."                                     ""                                                             
+```
 <p align="center">
   <img src="man/img/01.jpg" alt="Image" width="443" height="455" style="display: block; margin: 0 auto" />
 </p>

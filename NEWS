@@ -1,0 +1,14 @@
+KeyboardSimulator 1.1.0
+----------------------------------------------------------------
+
+* New function "srt.insert" for insert new dialog to subtitles.
+
+SRTtools 1.1.0
+----------------------------------------------------------------
+  
+* Adjust srt file to get better experience in watching movie.
+
+SRTtools 1.0.0
+----------------------------------------------------------------
+  
+* Initial release
