@@ -92,14 +92,14 @@ srt.write(srt_earlier, filename = "movie_new.srt")
    [9] "3"                                                             "00:00:28,278 --> 00:00:30,736"                                
    [11] "refugee vessel Statesman."                                     ""                                                             
 ```
-### **Remove the first dialog**
+### **Remove the second dialog**
 ```r
 > srt
    [1] "1"                               "00:00:26,360 --> 00:00:28,192"   "This is the Asgardian"           ""                               
    [5] "2"                               "00:00:28,278 --> 00:00:30,736"   "refugee vessel Statesman."       ""                               
    [9] "3"                               "00:00:33,492 --> 00:00:34,778"   "We are under assault."           ""                               
    [13] "4"                               "00:00:34,868 --> 00:00:36,951"   "I repeat, we are under assault."
-> srt.remove(srt, index = 1)
+> srt.remove(srt, index = 2)
    [1] "1"                               "00:00:26,360 --> 00:00:28,192"   "This is the Asgardian"           ""                     
    [5] "2"                               "00:00:33,492 --> 00:00:34,778"   "We are under assault."           ""            
    [9] "3"                               "00:00:34,868 --> 00:00:36,951"   "I repeat, we are under assault." ""                                
